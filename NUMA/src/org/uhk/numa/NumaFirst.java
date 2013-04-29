@@ -2,41 +2,27 @@ package org.uhk.numa;
 
 public class NumaFirst {
 
-	private static final float PRECISION = 0.000001f;
 	
-	private void bisekce(double a, double b){
 		
-		double y = Double.MAX_VALUE;
-		
-		int step = 1;
-		while(Math.abs(y) >= PRECISION){
-			System.out.print(step + ":");
-			double s = (a + b) / 2;
-			y = bisekceFce(s);
-			
-			System.out.println("s: " + s);
-			System.out.println("f(s): " + y);
-			
-			if(y > 0){
-				a = s;
-			} else {
-				b = s;
-			}
-			
-			System.out.println("<"+a + ";"+b+">");
-			System.out.println();
-			step ++;
-		}
-	}
-	
-	private double bisekceFce(double s){
-		return (s*s) - Math.cos(s);
-	}
-	
 	public static void main(String[] a){
-		NumaFirst numaFirst = new NumaFirst();
-		numaFirst.bisekce(-1.0f, -0.5f);
 		
+		//Bisekce bisekce = new Bisekce();
+		//bisekce.bisekce(-1.0f, -0.5f);
+		//bisekce.bisekce(1.0f, 0.5f);
+		
+		//Newton newton = new Newton();
+		//newton.tab(1.0f, 1.4f, 0.1f);	// vysledek 1,1 .. 1,2
+		//newton.furier(1.1f, 1.2f, 0.01f);
+		//newton.newton(1.2f);
+		
+		SimpleIteration iteration = new SimpleIteration();
+		//iteration.tab(0.5f, 0.6f, 0.01f, SimpleIteration.FCE_1);
+		//System.out.println();
+		//iteration.tab(3.6f, 3.7f, 0.01f, SimpleIteration.FCE_1);
+		//iteration.iter(0.5f, SimpleIteration.FCE_1);
+		
+		//iteration.tab(3.6f, 3.7f, 0.01f, SimpleIteration.FCE_2);
+		iteration.iter(3.6f, SimpleIteration.FCE_2);
 	}
 	
 }
